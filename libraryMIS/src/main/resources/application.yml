@@ -1,0 +1,27 @@
+server:
+  port: 9090
+
+#mysql数据库
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/db_mis
+    username: root
+    password: root
+  # use-suffix-pattern 允许使用.do请求访问
+  mvc:
+    pathmatch:
+      use-suffix-pattern: true
+  thymeleaf:
+    cache: false
+    encoding: utf-8
+    mode: HTML5
+
+#mybatis
+#默认mapper接口和mapper.xml映射文件，两者所在的相对路径保持一致,这样才会自动映射
+#若接口和xml路径不一致，且xml放在resource里，则进行如下配置；若xml在java目录下还在pom.xml添加<resource>
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+  type-aliases-package: cn.com.gs.library.model
+
