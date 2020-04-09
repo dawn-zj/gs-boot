@@ -1,0 +1,72 @@
+<!DOCTYPE>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" type="text/css" href="layui/css/layui.css">
+	<script type="text/javascript" src="layui/layui.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="/static/h-ui/css/H-ui.min.css" />
+	<link rel="stylesheet" type="text/css" href="/static/h-ui.admin/css/H-ui.admin.css" />
+	<link rel="stylesheet" type="text/css" href="/static/lib/Hui-iconfont/1.0.8/iconfont.css" />
+	<link rel="stylesheet" type="text/css" href="/static/h-ui.admin/skin/default/skin.css" id="skin" />
+	<link rel="stylesheet" type="text/css" href="/static/h-ui.admin/css/style.css" />
+	<link rel="stylesheet" type="text/css" href="/css/common.css">
+
+	<!--_footer 作为公共模版分离出去-->
+	<script type="text/javascript" src="/static/lib/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="/static/lib/layer/2.4/layer.js"></script>
+	<script type="text/javascript" src="/static/h-ui/js/H-ui.min.js"></script>
+	<script type="text/javascript" src="/static/h-ui.admin/js/H-ui.admin.js"></script>
+	<script type="text/javascript" src="/static/lib/jquery.contextmenu/jquery.contextmenu.r2.js"></script>
+	<script type="text/javascript" src="/js/jquery.form.js"></script>
+	<script type="text/javascript" src="/js/common.js"></script>
+</head>
+<body>
+
+<nav class="breadcrumb">
+	<i class="Hui-iconfont">&#xe67f;</i>首页
+	<span class="c-gray en">&gt;</span>工具管理
+	<span class="c-gray en">&gt;</span>在线二维码
+	<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
+</nav>
+
+<div>
+	<form action="" method="post" class="form form-horizontal" id="form-article-add">
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>内容：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" name="content" id="content" placeholder="内容" style="width:180px" class="input-text radius">
+				<button id="genImage" class="btn btn-primary radius" type="button">生成二维码</button>
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"></label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<div id="barcodeImg">
+					<img src="">
+				</div>
+			</div>
+		</div>
+	</form>
+
+</div>
+<script type="text/javascript">
+$(function(){
+	$("#genImage").click(function(){
+		var content = $("#content").val();
+		if(content==""){
+			return false;
+		}
+		$("#barcodeImg img").attr("src","/barcode/genImage.do?content="+content);
+	});
+});
+$(function(){
+	//tab选项卡
+	layui.use('element', function(){
+		var element = layui.element;
+	});
+});
+</script>
+</body>
+</html>
