@@ -12,7 +12,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<!-- 改 -->
-	<update id="roleMenu" parameterType="int">
+	<update id="roleMenu">
 		update gs_role set menu_id=#{menuIds},button_id=#{buttonIds},UPDATE_TIME=#{update_time} where ID=#{id};
 	</update>
 	<!-- 改 -->
