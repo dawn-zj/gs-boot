@@ -41,13 +41,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 查 （分页） -->
 	<select id="searchBookByPage" resultType="book">
 		select * from gs_book where 1=1 
-		
-			<if test="book.name !=null and book.name !=''">
-				and name like concat('%',#{book.name},'%') 
+			<if test="book !=null">
+				<if test="book.name != null and book.name != ''">
+					and name like concat('%',#{book.name},'%')
+				</if>
+				<if test="book.author != null and book.author != ''">
+					and author like concat('%',#{book.author},'%')
+				</if>
 			</if>
-			<if test="book.author !=null and book.author !=''">
-				and author like concat('%',#{book.author},'%') 
-			</if>
+
 			 limit #{start},#{end} 
 			<!--limit 0,5-->
 		
