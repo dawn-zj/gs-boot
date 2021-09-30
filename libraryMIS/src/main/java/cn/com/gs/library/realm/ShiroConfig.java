@@ -1,8 +1,12 @@
 package cn.com.gs.library.realm;
 
+import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
+import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.apache.shiro.mgt.SecurityManager;
+import org.apache.shiro.cache.ehcache.EhCacheManager;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -12,23 +16,17 @@ import java.util.Map;
 @Configuration
 public class ShiroConfig {
 
-	/**
-	 * 自定义的认证方法
-	 */
-	@Bean
-	public SysUserRealm sysUserRealm(){
-		SysUserRealm sysUserRealm = new SysUserRealm();
-		return sysUserRealm;
-	}
+	@Autowired
+	private SysUserRealm sysUserRealm;
 
 	/**
 	 * 配置ehcache缓存
 	 */
-//	@Bean
-//	public EhCacheManager ehcacheManager(){
-//		EhCacheManager ehCacheManager = new EhCacheManager();
-//		return ehCacheManager;
-//	}
+	@Bean
+	public EhCacheManager ehcacheManager(){
+		EhCacheManager ehCacheManager = new EhCacheManager();
+		return ehCacheManager;
+	}
 
 	/**
 	 * 配置securityManager管理器
@@ -39,9 +37,21 @@ public class ShiroConfig {
 	@Bean
 	public SecurityManager securityManager(){
 		DefaultWebSecurityManager defaultWebSecurityManager = new DefaultWebSecurityManager();
-		defaultWebSecurityManager.setRealm(sysUserRealm());
-//		defaultWebSecurityManager.setCacheManager();
+		defaultWebSecurityManager.setRealm(sysUserRealm);
+		defaultWebSecurityManager.setCacheManager(ehcacheManager());
 		return defaultWebSecurityManager;
+	}
+
+	/**
+	 * 开启shiro 注解支持
+	 * @param securityManager
+	 * @return
+	 */
+	@Bean
+	public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(SecurityManager securityManager) {
+		AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor = new AuthorizationAttributeSourceAdvisor();
+		authorizationAttributeSourceAdvisor.setSecurityManager(securityManager);
+		return authorizationAttributeSourceAdvisor;
 	}
 
 	/**
@@ -76,5 +86,14 @@ public class ShiroConfig {
 		filterChainDefinitionMap.put("/**", "authc");
 		shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
 		return shiroFilterFactoryBean;
+	}
+
+	/**
+	 * 前台的shiro标签才能生效,注意thymeleaf-extras-shiro版本问题：2.0.0可用
+	 * @return
+	 */
+	@Bean
+	public ShiroDialect shiroDialect(){
+		return new ShiroDialect();
 	}
 }

@@ -20,7 +20,7 @@ li{float:left;width:198px;border:1px solid white;line-height: 38px;text-align: c
 #content{width:400px;height:360px;background-color:yellow;}
 
 </style>
-<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
 <script type="text/javascript">
 	$(function(){
 		//ajax图书编号校验

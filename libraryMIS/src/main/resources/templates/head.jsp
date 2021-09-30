@@ -12,15 +12,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <base href="<%=basePath%>">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<link rel="stylesheet" href="css/common.css">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/myStyle.css">
-<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/myStyle.css">
+<link rel="stylesheet" href="/css/main.css">
 
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/jquery.SuperSlide.js"></script>
-<script type="text/javascript" src="js/colResizable-1.3.min.js"></script>
-<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/jquery.SuperSlide.js"></script>
+<script type="text/javascript" src="/js/colResizable-1.3.min.js"></script>
+<script type="text/javascript" src="/js/common.js"></script>
 
 <link rel="shortcut icon" href="bootstrap/favicon_16.ico"/>
 <link rel="bookmark" href="bootstrap/favicon_16.ico"/>

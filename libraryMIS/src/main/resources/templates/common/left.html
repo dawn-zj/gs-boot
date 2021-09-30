@@ -8,9 +8,9 @@
 	<div class="menu_dropdown bk_2" th:each="menu1 : ${menuList}" th:if="${menu1.pid  == -1}">
 		<dl id="menu-article">
 			<dt>
-				<i class="Hui-iconfont" th:utext="${menu1.img }"></i>
+				<i th:class="'Hui-iconfont ' + ${menu1.img }" ></i>
 				<span th:text="${menu1.name }"></span>
-				<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+				<i class="Hui-iconfont menu_dropdown-arrow Hui-iconfont-arrow2-bottom"></i></dt>
 			<dd>
 				<ul th:each="menu2 : ${menuList}" th:if="${menu2.pid  == menu1.id}">
 					<li>

@@ -6,7 +6,7 @@ spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://localhost:3306/db_mis
+    url: jdbc:mysql://localhost:3306/db_mis?&characterEncoding=utf8&useSSL=false&allowMultiQueries=true
     username: root
     password: root
   # use-suffix-pattern 允许使用.do请求访问

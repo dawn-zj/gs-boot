@@ -21,7 +21,9 @@ import cn.com.gs.library.model.Button;
 import cn.com.gs.library.model.Menu;
 import cn.com.gs.library.model.Role;
 import cn.com.gs.library.model.User;
+import org.springframework.stereotype.Component;
 
+@Component
 public class SysUserRealm extends AuthorizingRealm{
 	@Resource
 	private UserDao userDao;

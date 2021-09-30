@@ -5,32 +5,32 @@
 <!-- 设置请求服务器的基准路径 -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>用户登录</title>
-<link rel="stylesheet" type="text/css" href="/2/css/style.css">
-<link rel="stylesheet" type="text/css" href="/2/css/skin_/login.css">
-<script type="text/javascript" src="/2/js/jquery.js"></script>
-<script type="text/javascript" src="/2/js/jquery.select.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/loginStyle.css">
+<link rel="stylesheet" type="text/css" href="/css/skin_/login.css">
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/jquery.select.js"></script>
 </head>
 
 <body>
 <div id="container" style="height: 445px;">
     <div id="bd" style="padding-top: 67px;">
-    	<form action="user/login.do" method="post">
+    	<form action="/sysUser/login.do" method="post">
     	<div id="main">
         	<div class="login-box">
                 <div id="logo"></div>
                 <h1></h1>
-                <div th:text="${msg}">xxx</div>
-                <div class="input username" id="username">
+                <div th:text="${message}" class="input" style="left: 17%;top: 41%; line-height: 40px; text-align: center;color: red;"></div>
+                <div class="input username">
                     <label for="userName">用户名</label>
                     <span></span>
-                    <input type="text" id="userName" name="username">
+                    <input type="text" id="userName" name="account">
                 </div>
                 <div class="input psw" id="psw">
                     <label for="password">密&nbsp;&nbsp;&nbsp;&nbsp;码</label>
                     <span></span>
                     <input type="password" id="password" name="password">
                 </div>
-                <div class="input validate" id="validate">
+                <div class="input validate" >
                     <label for="valiDate">验证码</label>
                     <input type="text" id="valiDate">
                     <div class="value">X3D5</div>
