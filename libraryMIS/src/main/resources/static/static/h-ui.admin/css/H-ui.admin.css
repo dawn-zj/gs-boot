@@ -40,9 +40,9 @@ h4{line-height:30px}
 	#Hui-nav > ul > li{ width: 24%;text-align:center;}
 	#Hui-nav > ul > li a{ text-align: center; padding: 0}
 }
-#Hui-userbar{right:10px; position:absolute; top:40;}
+#Hui-userbar{right:10px; position:absolute; top:40px;}
 #Hui-userbar > ul > li > a{padding:0 10px}
-	
+
 #Hui-msg .badge{ position:absolute; left:19px; top:4px; font-size:12px; font-weight:normal; padding:1px 5px}
 /*左侧菜单*/
 .Hui-aside .menu_dropdown dl{ margin-bottom:0}
